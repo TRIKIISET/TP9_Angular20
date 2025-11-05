@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "TP8": {
+    "TP9": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:class": {
@@ -82,10 +82,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "TP8:build:production"
+              "buildTarget": "TP9:build:production"
             },
             "development": {
-              "buildTarget": "TP8:build:development"
+              "buildTarget": "TP9:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -115,4 +115,5 @@
       }
     }
   }
+
 }
