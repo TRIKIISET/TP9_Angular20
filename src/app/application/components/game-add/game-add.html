@@ -1,0 +1,57 @@
+<h3>Ajout d'un jeu</h3>
+<form [formGroup]="gameForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label> Identifiant du jeu </label>
+        <input type="number" name="id" readonly class="form-control" formControlName="id">
+    </div>
+    <div>
+        <label>Nom</label>
+        <input type="text" name="name" class="form-control" formControlName="name">
+    </div>
+    <div>
+        <label>Prix</label>
+        <input type="number" name="price" class="form-control" formControlName="price">
+    </div>
+
+    <div>
+        <label> Made In </label>
+        <label>
+            <input type="radio" name="madeIn" value="Tunisie" formControlName="madeIn">Tunisie
+        </label>
+        <label>
+            <input type="radio" name="madeIn" value="Autre" formControlName="madeIn">Autre
+        </label>
+    </div>
+    <div>
+        <label>Catégorie</label>
+        <select name="selCategories" class="form-select" formControlName="category">
+            @for(c of categories; track $index){
+            <option [value]="c">{{c}}</option>
+            }
+
+        </select>
+    </div>
+    <div>
+        <label>
+            <input type="checkbox" name="isNew" formControlName="isNew"> Nouveau
+        </label>
+    </div>
+    <h5>Définition des points de vente</h5>
+    <div formArrayName="shops">
+        @for(shop of gameShops.controls; track $index; let indice= $index){
+        <div>
+            <label>Point de vente num : {{indice+1}}</label>
+            <input type="text" [value]="shop" [formControlName]="indice">
+        </div>
+
+        }
+    </div>
+    <button type="button" class="btn btn-sm btn-secondary" (click)="onAddShop()">Ajouter un point de vente</button>  <br>
+
+    <input type="submit" class="btn btn-success" value="Ajouter">
+    <input class="btn btn-warning" type="button" value="Effacer" (click)="onResetForm()">
+
+</form>
+<div>
+    {{games|json}}
+</div>
