@@ -34,7 +34,7 @@ export class GameAdd implements OnInit {
   gameForm!: FormGroup;
   ngOnInit(): void {
     this.gameForm = this.fb.nonNullable.group({
-      id: [2],
+      id: ["2"],
       name: ["Ballon"],
       price: [12.3],
       madeIn: ['Tunisie'],
@@ -86,3 +86,4 @@ export class GameAdd implements OnInit {
   }
 
 }
+
